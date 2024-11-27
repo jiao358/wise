@@ -26,7 +26,8 @@ async def schedule_pipeline(interval):
 
 async def main():
     interval_hours = 1
-    interval_seconds = interval_hours * 60 * 60
+    # interval_seconds = interval_hours * 60 * 60
+    interval_seconds =   60
     await schedule_pipeline(interval_seconds)
 
 asyncio.run(main())

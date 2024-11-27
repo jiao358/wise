@@ -2,7 +2,8 @@ services:
   core:
     build:
       dockerfile: Dockerfile
-    image: wiseflow:latest
+    # image: wiseflow:latest
+    image: wiseflow:estela
     tty: true
     stdin_open: true
     entrypoint: bash docker_entrypoint.sh

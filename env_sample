@@ -1,4 +1,4 @@
-export LLM_API_KEY=""
+export LLM_API_KEY="sk-irctfinvxhmhoennnizdyfeliizxvirbpffzlyswclziahvb"
 export LLM_API_BASE="https://api.siliconflow.cn/v1" ##for local model services or calling non-OpenAI services with openai_wrapper
 ##strongly recommended to use the following model provided by siliconflow (consider both effect and price)
 export GET_INFO_MODEL="THUDM/glm-4-9b-chat" ##
