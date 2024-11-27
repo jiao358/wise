@@ -9,18 +9,19 @@ token = os.environ.get('LLM_API_KEY', "")
 
 if not base_url and not token:
     raise ValueError("LLM_API_BASE or LLM_API_KEY must be set")
-elif base_url and not token:
-    client = OpenAI(base_url=base_url)
-elif not base_url and token:
-    client = OpenAI(api_key=token)
-else:
-    client = OpenAI(api_key=token, base_url=base_url)
+# elif base_url and not token:
+#     client = OpenAI(base_url=base_url)
+# elif not base_url and token:
+#     client = OpenAI(api_key=token)
+# else:
+client = OpenAI(base_url=base_url, api_key="322112", timeout=60*5)
 
 
 def openai_llm(messages: list, model: str, logger=None, **kwargs) -> str:
     if logger:
         logger.debug(f'messages:\n {messages}')
         logger.debug(f'model: {model}')
+        logger.info(f'baseUrl: {base_url}')
         logger.debug(f'kwargs:\n {kwargs}')
 
     try:
@@ -42,5 +43,6 @@ def openai_llm(messages: list, model: str, logger=None, **kwargs) -> str:
     if logger:
         logger.debug(f'result:\n {response.choices[0]}')
         logger.debug(f'usage:\n {response.usage}')
+        logger.debug(f'all:\n {response}')
 
     return response.choices[0].message.content

@@ -6,9 +6,21 @@ services:
     image: wiseflow:estela
     tty: true
     stdin_open: true
-    entrypoint: bash docker_entrypoint.sh
+    # entrypoint: bash docker_entrypoint.sh
     env_file:
       - .env
+    environment:
+      - LLM_API_BASE=${LLM_API_BASE}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GET_INFO_MODEL=${GET_INFO_MODEL}
+      - REWRITE_MODEL=${REWRITE_MODEL}
+      - HTML_PARSE_MODEL=${HTML_PARSE_MODEL}
+      - PB_API_AUTH=${PB_API_AUTH}
+      - PROJECT_DIR=${PROJECT_DIR}
+      - WS_LOG=verbose
+      - LANG=zh_CN.UTF-8
+      - LC_CTYPE=zh_CN.UTF-8
+    # network_mode: host  # 使用 host 网络模式
     ports:
       - 8090:8090
       - 8077:8077
